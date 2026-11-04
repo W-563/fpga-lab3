@@ -5,7 +5,7 @@ EIE330 FPGA-based System Design, Lab 3.
 | Folder | Task | Contents |
 |---|---|---|
 | RTL | Display MUST on a 640 × 480 VGA screen | pll.v, vga_ctrl.v, vga_pic.v, vga_MUST.v (top) + complete RTL views |
-| Sim-wave | Module and top-level simulation | Four testbenches + simulation data (CSV) + waveforms |
+| sim | Module and top-level simulation | Four testbenches + simulation data (CSV) + waveforms |
 | Evidence | Board test and result checks | Display and reset images, reconstructed screen, synthesis statistics and verification records |
 
 Clock: 50 MHz on `sys_clk`, divided to a 25 MHz pixel clock. Active-low asynchronous reset: `sys_rst_n`. The letters disappear during reset and return after release. M is red, U green, S blue and T white on a black background.
@@ -13,8 +13,8 @@ Clock: 50 MHz on `sys_clk`, divided to a 25 MHz pixel clock. Active-low asynchro
 Simulation (run inside the repository folder):
 
 ```bash
-iverilog -o Sim-wave/tb_vga_MUST.vvp -y RTL Sim-wave/tb_vga_MUST.v
-vvp Sim-wave/tb_vga_MUST.vvp
+iverilog -o sim/tb_vga_MUST.vvp -y RTL sim/tb_vga_MUST.v
+vvp sim/tb_vga_MUST.vvp
 gtkwave tb_vga_MUST.vcd
 ```
 
